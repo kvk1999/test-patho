@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment with Medicine Background</title>
+  
+</head>
+<style>
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://th.bing.com/th/id/OIG2.pbKMEk5SO8v.JsK9fVSN?pid=ImgGn');
+    background-size: cover;
+    color: white;
+  }
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.7); /* Black overlay with opacity */
+    padding: 20px;
+    min-height: 100vh;
+  }
+  .payment-methods {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .payment-method {
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+  }
+  .payment-method:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  .input-field, button {
+    margin: 10px 0;
+    padding: 10px;
+    width: calc(100% - 22px);
+    border-radius: 5px;
+    border: none;
+  }
+  button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+
+</style>
+<body>
+
+<div class="overlay">
+  <div class="payment-methods">
+    <div class="payment-method" id="creditCard">
+      Credit Card
+      <form style="display:none;" id="creditCardForm" onsubmit="handlePayment(event)">
+        <input type="text" class="input-field" placeholder="Card Number" required>
+        <input type="text" class="input-field" placeholder="CVV" required>
+        <input type="month" class="input-field" placeholder="Expiry Date" required>
+        <button type="submit">Pay with Credit Card</button>
+      </form>
+    </div>
+    <div class="payment-method" id="debitCard">
+      Debit Card
+      <form style="display:none;" id="debitCardForm" onsubmit="handlePayment(event)">
+        <input type="text" class="input-field" placeholder="Card Number" required>
+        <input type="text" class="input-field" placeholder="CVV" required>
+        <input type="month" class="input-field" placeholder="Expiry Date" required>
+        <button type="submit">Pay with Debit Card</button>
+      </form>
+    </div>
+    <div class="payment-method" id="upi">
+      UPI (Paytm/PhonePe/GPay/PayPal)
+      <form style="display:none;" id="upiForm" onsubmit="handlePayment(event)">
+        <input type="tel" class="input-field" placeholder="Mobile No." required>
+        <button type="submit">Proceed with UPI</button>
+      </form>
+    </div>
+    <div class="payment-method" id="cod">
+      Cash on Delivery
+      <form style="display:none;" id="codForm" onsubmit="handleCOD(event)">
+        <input type="text" class="input-field" placeholder="Delivery Address" required>
+        <button type="submit">Confirm COD</button>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  
+  document.querySelectorAll('.payment-method').forEach(item => {
+    item.addEventListener('click', function() {
+      document.querySelectorAll('.payment-method form').forEach(form => {
+        form.style.display = 'none';
+      });
+      this.querySelector('form').style.display = 'block';
+    });
+  });
+
+  function handlePayment(e) {
+    e.preventDefault();
+    document.body.innerHTML = '<h1 style="color:white;">Payment Successful!</h1>';
+  }
+
+  function handleCOD(e) {
+    e.preventDefault();
+    document.body.innerHTML = '<h1 style="color:white;">COD Confirmed! Your order will be delivered soon.</h1>';
+  }
+
+</script>
+</body>
+
+
+</body>
+</html>

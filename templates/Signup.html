@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up</title>
+</head>
+<style>
+body { font-family: Arial, sans-serif; }
+form { width: 300px; margin: auto; }
+.form-group { margin-bottom: 15px; }
+label { display: block; margin-bottom: 5px; }
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="number"] { width: 100%; padding: 10px; margin-top: 5px; }
+input[type="submit"] { background: blue; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+input[type="submit"]:hover { background: darkblue; }
+</style>
+<body>
+
+<form action="/signup" method="POST">
+  <div class="form-group">
+    <label for="first-name">First Name</label>
+    <input type="text" id="first-name" name="first_name" required>
+  </div>
+  <div class="form-group">
+    <label for="last-name">Last Name</label>
+    <input type="text" id="last-name" name="last_name" required>
+  </div>
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input type="number" id="age" name="age" required>
+  </div>
+  <div class="form-group">
+    <label for="dob">Date of Birth</label>
+    <input type="date" id="dob" name="dob" required>
+  </div>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+  </div>
+  <div class="form-group">
+    <label for="phone-number">Phone Number</label>
+    <input type="text" id="phone-number" name="phone_number" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required>
+  </div>
+  <div class="form-group">
+    <label for="confirm-password">Confirm Password</label>
+    <input type="password" id="confirm-password" required>
+  </div>
+  <div class="form-group">
+    <label><input type="checkbox" required> I agree with the Terms & Conditions</label>
+  </div>
+  <input type="submit" value="Sign Up">
+</form>
+<script>
+  document.forms[0].onsubmit = function(e) {
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirm-password');
+    if (password.value !== confirmPassword.value) {
+      e.preventDefault(); // Prevent form submission
+      alert('Passwords do not match!');
+    }
+  };
+</script>
+
+</body>
+</html>

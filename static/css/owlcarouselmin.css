@@ -1,0 +1,12 @@
+/* owlcarouselmin.css */
+
+/* Beautified code */
+/* Styles for Owl Carousel */
+.owl-carousel {
+    display: none;
+    position: relative;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/* More styles... */
+
+/* Save this code as owl.carousel.css */
